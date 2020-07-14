@@ -26,9 +26,9 @@ def fib_fun(my_int):
 
 	for num in range(my_int-1):
 		new_num = fib_list[-1] + fib_list[-2]
-		fib_list.append(new_num)
+		fib_list = [fib_list[-2], fib_list[-1], new_num]
 
-	return fib_list[my_int]
+	return fib_list[-1]
 
 
 fib_fun(3) => 3
@@ -47,5 +47,21 @@ version with O(n) for runtime and O(1) on memory
 recursive version --> time and memory complexity?
 
 which approach?
+
+recursive version
+---
+fib_seq(index)
+counter = index
+while counter > 0 base case = index is reached (int minus 1)
+
+if not lst:
+		list = [1, 1]
+else:
+	take the last two items of list and add together
+	decrease counter
+	return curr_list, index
+
+
+
 
 
