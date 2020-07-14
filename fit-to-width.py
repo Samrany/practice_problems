@@ -33,7 +33,14 @@ def fit_to_width(string, limit):
     """Print string within a character limit."""
 
 
+       # create an empty string
+       		# loop over each word and add to string
+       		# only if length doesn't go over 10 (count how many chars left in line)
+       		# once hit 10, print string and start again
+
+
 if __name__ == '__main__':
     import doctest
     if doctest.testmod().failed == 0:
         print('\n✨ ALL TESTS PASSED!\n')
+
