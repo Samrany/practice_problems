@@ -71,3 +71,30 @@ def fib(n)
 	else:
 		return fib(n-1) + fib(n-2)
 
+
+----
+
+
+
+def fib_seq(int, my_list=[1,1]):
+		int = int - 1
+		if int < 1:
+			return (my_list[-1])
+
+		else:
+			new_num = my_list[-1] + my_list[-2]
+			my_list = [my_list[-2], my_list[-1], new_num]
+			return (fib_seq(int, my_list))
+
+
+
+
+
+def fib_fun(my_int):
+	fib_list = [1, 1]
+
+	for num in range(my_int-1):
+		new_num = fib_list[-1] + fib_list[-2]
+		fib_list = [fib_list[-2], fib_list[-1], new_num]
+
+	return fib_list[-1]
