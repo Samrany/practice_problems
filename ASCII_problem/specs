@@ -1,0 +1,35 @@
+specs:
+
+WHAT MAKES THIS AN API????
+
+API draw rectangles and squares
+- print canvas and any shapes to standard output. 10 x 10 output.
+- add a shape (rectangles)
+- clear all shapes
+- create a rectangle using params specified
+- change a rectangle's fill character
+- translate (move up, down, left, right)
+
+
+function that calls shape must call 
+
+
+
+array/canvas 10 x 10 with coordinates.
+
+add function: adds a rectangle??
+
+create function: changes empty coordinates to specific character. requires starting coordinates and size.
+
+change fill: (how does it know which rectangle? has to take a variable name to point to specific ?)
+
+translate: same as above.
+
+clear: loops over each square and clears it
+
+print: prints the canvas to the terminal
+
+
+
+
+
