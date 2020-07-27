@@ -8,7 +8,17 @@ def create_museum(m, n):
 			row.append("0")
 		museum.append(row)
 
+	print(museum) #DELETE AFTERWARDS
 	return museum
+
+
+def print_museum(museum): #DELETE AFTERWARDS
+	for sublist in museum:
+		output = " "
+		for item in sublist:
+			output += str(item)
+
+		print(output)
 
 
 def check_for_unguarded_rooms(museum):
@@ -108,10 +118,4 @@ def check_museum_security(size, *args):
 
 
 
-def print_museum(museum): #DELETE AFTERWARDS
-	for sublist in museum:
-		output = " "
-		for item in sublist:
-			output += str(item)
 
-		print(output)
