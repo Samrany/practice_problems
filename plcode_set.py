@@ -29,43 +29,20 @@ def Clock(from_time, to_time):
 
 
 
-# def addTwoDigits(n):
-#     my_string = str(n)
-#     out = int(my_string[0]) + int(my_string[1])
-#     return out
 
 
-# def digitSumsDifference(n):
-# 	str_num = str(n)
-# 	even_total = 0
-# 	odd_total = 0
+def digit_diff(n):
+    str_num = str(n)
+    even_total = 0
+    odd_total = 0
 
-# 	for num in str_num:
-# 		if int(num) % 2 == 0:
-# 			even_total = even_total + int(num)
-		
-# 		else:
-# 			odd_total = odd_total + int(num)
-
-# 	diff = even_total - odd_total
-# 	return(diff)
-
-
-# digitSumsDifference(1234)
-
-
-# def digitSumsDifference(n):
-#     str_num = str(n)
-#     even_total = 0
-#     odd_total = 0
-
-#     for num in str_num:
-#         if int(num) % 2 == 0:
-#             even_total = even_total + int(num)
+    for num in str_num:
+        if int(num) % 2 == 0:
+            even_total = even_total + int(num)
         
-#         else:
-#             odd_total = odd_total + int(num)
+        else:
+            odd_total = odd_total + int(num)
 
-#     diff = even_total - odd_total
+    diff = even_total - odd_total
 
-#     return diff
+    return diff
