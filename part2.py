@@ -61,15 +61,17 @@ def ccProvider(operations):
 				balance_info[person] = {'card_number': card_num, 'limit': limit, 'balance': 0}
 
 			else:
-				balance_info[ops[1]]= {'card_number': 'invalid', 'limit': limit, 'balance': 'error'}
+				balance_info[ops[1]]= {'card_number': card_num, 'limit': limit, 'balance': 'error'}
 
 			print(balance_info)
 
+		
 		elif ops[0] == "Charge":
 			action, person, amount = ops
 			charge = int(amount.split('$')[1])
 			
-			if balance_info[person]['balance'] + charge > balance_info[person]['limit']: 
+			if balance_info[person]['balance'] == 'error' or (
+				balance_info[person]['balance'] + charge > balance_info[person]['limit']): 
 				# if balance_info[:
 				pass
 
@@ -80,7 +82,12 @@ def ccProvider(operations):
 		elif ops[0] == "Credit":
 			action, person, amount = ops
 			credit = int(amount.split('$')[1])
-			balance_info[person]['balance'] -= credit
+			
+			if balance_info[person]['balance'] == 'error':
+				pass
+			
+			else:
+				balance_info[person]['balance'] -= credit
 
 	
 	balance_output = []
