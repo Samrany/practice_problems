@@ -8,27 +8,53 @@ def luhn_check(cc_num):
 	for num in nums:
 		list_nums.append(int(num))
 
-	for idx, value in enumerate(list_nums):
-		if idx % 2 == 0:
-			sum_list.append(value)
-		
-		else:
-			new_value = value * 2
-			str_value = str(new_value)
-			if len(str_value) == 1:
-				sum_list.append(int(new_value))
+
+	count = 0
+	for item in list_nums[-1::-1]:
+		count += 1
+
+		if count % 2 == 0:
+			value = item * 2
 			
-			else:
-				new_num = 0
-				for num in str_value:
-					new_num += int(num)
-					sum_list.append(new_num)
+			if len(str(value)) == 1:
+				sum_list.insert(0, value)
+
+			else: 
+				str_value = str(value)
+				added_nums = int(str_value[0]) + int(str_value[1])
+				sum_list.insert(0, added_nums)
+
+
+		else: 
+			sum_list.insert(0, item)
+
+
+	# for idx, value in enumerate(list_nums):
+	# 	if idx % 2 == 0:
+	# 		sum_list.append(value)
+		
+	# 	else:
+	# 		new_value = value * 2
+	# 		str_value = str(new_value)
+			
+	# 		if len(str_value) == 1:
+	# 			sum_list.append(int(new_value))
+			
+	# 		else:
+	# 			new_num = 0
+	# 			for num in str_value:
+	# 				new_num += int(num)
+	# 			sum_list.append(new_num)
 
 	mod_num = 0
+	
 	print(list_nums)
 	print(sum_list)
+
 	for num in sum_list:
 		mod_num += num
+
+	print(mod_num)
 
 	if mod_num % 10 == 0:
 		print("TRUE")
@@ -37,7 +63,7 @@ def luhn_check(cc_num):
 
 	else: 
 		print("FALSE")
-		return True  #FIX AFTER
+		return False  
 
 		
 def ccProvider(operations):
@@ -54,7 +80,6 @@ def ccProvider(operations):
 
 		if ops[0] == "Add":
 			action, person, card_num, limit = ops
-			# if validate cc num passes:
 			limit = int(limit.split('$')[1])
 			
 			if luhn_check(card_num) == True:	
@@ -92,6 +117,7 @@ def ccProvider(operations):
 
 	sorted_names = sorted(balance_info)
 	balance_output = []
+	#SORTED DICTIONARY ITEMS. PYTHON 3.6 DICTIONARIES ARE ORDERED?
 
 	for person in sorted_names:
 		balance = balance_info[person].get('balance')
