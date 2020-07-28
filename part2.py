@@ -1,4 +1,44 @@
 
+def luhn_check(cc_num):
+
+	nums = str(cc_num)
+	list_nums = []
+	sum_list = []
+
+	for num in nums:
+		list_nums.append(int(num))
+
+	for idx, value in enumerate(list_nums):
+		if idx % 2 == 0:
+			sum_list.append(value)
+		
+		else:
+			new_value = value * 2
+			str_value = str(new_value)
+			if len(str_value) == 1:
+				sum_list.append(new_value)
+			
+			else:
+				new_num = 0
+				for num in str_value:
+					num = int(num) + num
+					#add ints together and append
+
+	mod_num = 0
+	for num in sum_list:
+		mod_num += num
+
+	if mod_num % 10 == 0:
+		return True
+
+	else: 
+		return False
+		
+
+	print(list_nums)
+
+luhn_check(5454545454545454)
+
 def ccProvider(operations):
 	
 	balance_info = {} 
