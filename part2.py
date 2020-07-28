@@ -30,42 +30,16 @@ def luhn_check(cc_num):
 				sum_list.append(added_nums)
 
 
-
-
-	# for idx, value in enumerate(list_nums):
-	# 	if idx % 2 == 0:
-	# 		sum_list.append(value)
-		
-	# 	else:
-	# 		new_value = value * 2
-	# 		str_value = str(new_value)
-			
-	# 		if len(str_value) == 1:
-	# 			sum_list.append(int(new_value))
-			
-	# 		else:
-	# 			new_num = 0
-	# 			for num in str_value:
-	# 				new_num += int(num)
-	# 			sum_list.append(new_num)
-
 	mod_num = 0
 	
-	print(list_nums)
-	print(sum_list)
-
 	for num in sum_list:
 		mod_num += num
 
-	print(mod_num)
-
 	if mod_num % 10 == 0:
-		print("TRUE")
 		return True
 
 
 	else: 
-		print("FALSE")
 		return False  
 
 		
@@ -100,7 +74,6 @@ def ccProvider(operations):
 			
 			if balance_info[person]['balance'] == 'error' or (
 				balance_info[person]['balance'] + charge > balance_info[person]['limit']): 
-				# if balance_info[:
 				pass
 
 			else:
@@ -153,7 +126,7 @@ def ccProvider(operations):
 #               ["Credit", "Lisa", "$100"],
 #               ["Credit", "Quincy", "$200"]]
 
-# creditCardProvider(operations) = [["Lisa", "$-93"],
+# ccProvider(operations) = [["Lisa", "$-93"],
 #                                   ["Quincy", "error"],
 #                                   ["Tom", "$500"]]
 
