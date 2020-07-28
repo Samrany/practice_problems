@@ -13,20 +13,23 @@ def luhn_check(cc_num):
 	for item in list_nums[-1::-1]:
 		count += 1
 
-		if count % 2 == 0:
+		if count % 2 != 0:
+
+			sum_list.append(item)
+
+		else:
+			
 			value = item * 2
 			
 			if len(str(value)) == 1:
-				sum_list.insert(0, value)
+				sum_list.append(value)
 
 			else: 
 				str_value = str(value)
 				added_nums = int(str_value[0]) + int(str_value[1])
-				sum_list.insert(0, added_nums)
+				sum_list.append(added_nums)
 
 
-		else: 
-			sum_list.insert(0, item)
 
 
 	# for idx, value in enumerate(list_nums):
