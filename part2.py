@@ -63,8 +63,6 @@ def ccProvider(operations):
 			else:
 				balance_info[ops[1]]= {'card_number': card_num, 'limit': limit, 'balance': 'error'}
 
-			print(balance_info)
-
 		
 		elif ops[0] == "Charge":
 			action, person, amount = ops
@@ -88,21 +86,19 @@ def ccProvider(operations):
 			
 			else:
 				balance_info[person]['balance'] -= credit
-
 	
+	print(balance_info)
+	sorted(balance_info)
+	print(balance_info)
 	balance_output = []
 
 	for person in balance_info:
-		print(person)
-		print(balance_info[person].get('balance'))
-		# balance = 
-		# balance_output.append[person, balance]
-		# print(person)
-		# print(balance_info[person].get('balance'))
+		balance = balance_info[person].get('balance')
+		balance_output.append([person, balance])
 
-	# 	balance_output.append[person, person['balance']]
 
-	# print(balance_output)
+	print(balance_output)
+	return(balance_output)
 
 
 
