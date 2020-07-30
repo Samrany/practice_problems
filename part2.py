@@ -30,17 +30,11 @@ def luhn_check(cc_num):
 				sum_list.append(added_nums)
 
 
-	mod_num = 0
-	
-	for num in sum_list:
-		mod_num += num
-
-	if mod_num % 10 == 0:
+	if sum(sum_list) % 10 == 0:
 		return True
 
-
-	else: 
-		return False  
+	else:
+		return False
 
 		
 def ccProvider(operations):
