@@ -96,9 +96,15 @@ def ccProvider(operations):
 	#SORTED DICTIONARY ITEMS. PYTHON 3.6 DICTIONARIES ARE ORDERED?
 
 	for person in sorted_names:
-		balance = balance_info[person].get('balance')
-		balance_output.append([person, balance])
+		balance = (balance_info[person].get('balance'))
 
+		if balance == "error":
+			pass
+			
+		else:
+			balance = '$'+str(balance)
+		
+		balance_output.append([person, balance])
 
 	print(balance_output)
 	return(balance_output)
