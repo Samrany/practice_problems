@@ -8,17 +8,14 @@ def luhn_check(cc_num):
 	for num in nums:
 		list_nums.append(int(num))
 
-
 	count = 0
 	for item in list_nums[-1::-1]:
 		count += 1
 
 		if count % 2 != 0:
-
 			sum_list.append(item)
 
-		else:
-			
+		else:			
 			value = item * 2
 			
 			if len(str(value)) == 1:
@@ -84,6 +81,8 @@ def ccProvider(operations):
 			else:
 				balance_info[person]['balance'] -= credit
 	
+		else:
+			#runtime error
 
 	sorted_names = sorted(balance_info)
 	balance_output = []
