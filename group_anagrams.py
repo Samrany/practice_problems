@@ -7,9 +7,9 @@ def groupAnagrams(my_list):
         sorted_word = "".join(sorted(word))
         word_key_dict[sorted_word] = word_key_dict.get(sorted_word, []) + [word]
   
-    for key, value in word_key_dict.items():
-        print(value)
-        return(value)
+
+    print (word_key_dict.values())
+    return word_key_dict.values()
 
  
 
