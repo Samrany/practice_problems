@@ -11,17 +11,22 @@ def groupAnagrams(my_list):
 # {"eat":{'e':1, 'a': 1, 't': 1}, "tea":{}}
    
     output_list = []
-    dict = {}
+    my_dict = {}
     value_set = set()
     
-    for each word in strs:
-        dict[word] = {}
+    for word in my_list:
+        my_dict[word] = {}
         
         for char in word:
-            dict[word][char] = dict[word].get(char,0) + 1
+            my_dict[word][char] = my_dict[word].get(char,0) + 1
             
-        value_set.append(dict[word])
-        
+        # value_set.add(my_dict[word])
+
+    print(my_dict)
+    print(value_set)
+ 
+
+groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])       
     
     # for item in value_set:
     #     group_list = []
