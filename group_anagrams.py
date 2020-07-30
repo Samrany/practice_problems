@@ -1,7 +1,6 @@
 
 def groupAnagrams(my_list):
    
-    output_list = []
     word_key_dict = {}
     
     for word in my_list:
@@ -10,6 +9,7 @@ def groupAnagrams(my_list):
   
     for key, value in word_key_dict.items():
         print(value)
+        return(value)
 
  
 
