@@ -38,10 +38,37 @@ def reverseLinkedListStandard(head):
         return curr
 
 
-reverseLinkedListStandard(head)
+# class Solution(object):        
+#     def reverseList(self, head):  # Iterative
+#         prev, curr = None, head
+#         while curr:
+#             curr.next, prev, curr = prev, curr, curr.next
+        
+#         return prev
+        
+
+# public ListNode reverseList(ListNode head) {
+#     if (head == null || head.next == null) return head;
+#     ListNode p = reverseList(head.next);
+#     head.next.next = head;
+#     head.next = null;
+#     return p;
+# }
 
 
-# def reverseLinkedListRecursive(current):
+# reverseLinkedListStandard(head)
+
+
+def reverseLinkedListRecursive(head):
+
+	if head == None or head.next == None:
+		return head
+
+	else:
+		nxt  = reverseLinkedListRecursive(head.next)
+		head.next.next = head;
+		head.next = None;
+		return nxt
 
 # 	while current.next is not None:
 # 		current.next  = reverseLinkedListRecursive(current.next)
@@ -50,7 +77,8 @@ reverseLinkedListStandard(head)
 # 		return current 
 
 
-# print_ll(reverseLinkedListRecursive(head))
+reverse = reverseLinkedListRecursive(head)
+print_ll(reverse)
 
 	# while curr.next != None:
 	# 	curr.next = recursion(cur)
