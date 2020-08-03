@@ -10,7 +10,7 @@ def twoSum(nums, target):
                     return[idx, idx2]
 
 #two-pass hash solution
-def twoSum1(nums, target):
+def twoSum2(nums, target):
     hash_table = {}
 
     for idx in range(len(nums)):
@@ -25,37 +25,21 @@ def twoSum1(nums, target):
     return []
 
 
-# hash_table={}
-# for i in range(len(nums)):    # 先做一個hash table
-#     hash_table[nums[i]]=i
-# for i in range(len(nums)):
-#     if target-nums[i] in hash_table:
-#         if hash_table[target-nums[i]] != i:
-#             return [i, hash_table[target-nums[i]]]
-# return []
+#one-pass hash solution
+def twoSum3(nums, target):
 
-# public int[] twoSum(int[] nums, int target) {
-#     Map<Integer, Integer> map = new HashMap<>();
-#     for (int i = 0; i < nums.length; i++) {
-#         map.put(nums[i], i);
-#     }
-#     for (int i = 0; i < nums.length; i++) {
-#         int complement = target - nums[i];
-#         if (map.containsKey(complement) && map.get(complement) != i) {
-#             return new int[] { i, map.get(complement) };
-#         }
-#     }
-#     throw new IllegalArgumentException("No two sum solution");
-# }
+    hash_table = {} 
 
-# def twoSum(nums: List[int], target: int) -> List[int]:
-        
-#     length = len(nums)
-    
-#     for idx, value in enumerate(nums):
-#         for idx2, value2 in enumerate(nums[idx+1:len]):
-#             if value + value2 == target:
-#                 return [idx, idx2]
+    for idx, val in enumerate(nums):
+        match = target - val 
 
-print(twoSum([0, 2, 5, 8, 3, 5, 2], 4))
-print(twoSum([0, 3, 6], 4))
+        if match in hash_table and hash_table[match] !=  idx: 
+            return[idx, hash_table[match]]
+
+        hash_table[val] = idx
+
+    return []
+
+
+print(twoSum3([0, 2, 5, 8, 3, 5, 2], 4))
+print(twoSum3([0, 3, 6], 4))
