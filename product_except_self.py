@@ -41,6 +41,11 @@ def Product_except_self(nums):
 	return output_list	
 
 
+loop over each item
+
+
+def Product_except_self2(nums):
+
 
 print(Product_except_self([1, 2, 3]) )
 print(Product_except_self([1, 2, 4]) )
