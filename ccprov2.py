@@ -53,20 +53,35 @@ def cc_add(operation):
 	return add_dict
 
 
-def cc_charge(operation):
+
+def cc_charge(balance_info, operation):
 	""""""
-	charge_dict = {}
 	action, person, charge = operation
-	charge = int(amount.split('$')[1])
+	charge = int(charge.split('$')[1])
 	
-	if charge_dict[person]['balance'] == 'error' or (
-		charge_dict[person]['balance'] + charge > balance_info[person]['limit']): 
+	if balance_info[person]['balance'] == 'error' or (
+	   balance_info[person]['balance'] + charge > balance_info[person]['limit']): 
 		pass
 
 	else:
 		balance_info[person]['balance'] += charge
 
 
+	return balance_info
+
+
+def cc_credit(balance_info, operation):
+	""""""
+	action, person, credit = operation
+	credit = int(credit.split('$')[1])
+	
+	if balance_info[person]['balance'] == 'error':
+		pass
+	
+	else:
+		balance_info[person]['balance'] -= credit
+
+	return balance_info
 
 
 def ccProvider(operations):
@@ -81,18 +96,12 @@ def ccProvider(operations):
 
 
 		elif op[0] == "Charge":
-			balance_info.update(cc_charge(op))
+			balance_info.update(cc_charge(balance_info, op))
 
 
-		elif ops[0] == "Credit":
-			action, person, amount = ops
-			credit = int(amount.split('$')[1])
-			
-			if balance_info[person]['balance'] == 'error':
-				pass
-			
-			else:
-				balance_info[person]['balance'] -= credit
+		elif op[0] == "Credit":
+			balance_info.update(cc_credit(balance_info, op))
+
 	
 
 	sorted_names = sorted(balance_info)
