@@ -1,5 +1,5 @@
 def ccProvider(operations):
-	"""Given a list of credit card operations, returns a list of people and their respective balances"""
+	"""Given a list of credit card operations, returns a list of people with their respective balances"""
 	
 	balance_info = {} 
 
@@ -23,7 +23,7 @@ def ccProvider(operations):
 
 def cc_add(operation):
 	"""Given a list of cc info, checks if card passes luhn function and returns dictionary
-	 with people and their respective card_num, limit, and 0 balance or error if failed luhn test"""
+	 with people (key) and respective card_num, limit, and balance of 0, or error if failed luhn test (values)"""
 
 	action, person, card_num, limit = operation
 	limit = int(limit.split('$')[1])
@@ -42,8 +42,8 @@ def cc_add(operation):
 
 def cc_charge(balance_info, operation):
 	"""Given a dictionary of people's cc balance info and a list with cc charge info,
-	updates dictionary if balance doesn't have an error, or if charge will 
-	not put user over cc limit and returns dictionary"""
+	applies charge to balance if balance doesn't have an error, or if charge will 
+	not put user over cc limit and returns updated dictionary"""
 
 	action, person, charge = operation
 	charge = int(charge.split('$')[1])
@@ -61,7 +61,7 @@ def cc_charge(balance_info, operation):
 
 def cc_credit(balance_info, operation):
 	"""Given a dictionary of people's cc balance info and a list with cc credit info,
-	updates dictionary if balance doesn't have an error and returns dictionary with updated cc balance"""
+	applies credit to balance if balance doesn't have an error and returns updated dictionary"""
 
 	action, person, credit = operation
 	credit = int(credit.split('$')[1])
@@ -97,8 +97,8 @@ def cc_balances(balance_info):
 
 
 def luhn_check(cc_num):
-	"""Takes string of cc numbers and determines if they pass luhn test (i.e. if cc is valid) and
-	 returns True or False """
+	"""Takes string of cc numbers and determines if credit card number sequence passes the
+	luhn test (i.e. if cc is valid) and returns True or False """
 
 	list_nums = []
 	sum_list = []
@@ -137,10 +137,6 @@ def luhn_check(cc_num):
 
 
 
-# ccProvider(operations) = [["Lisa", "$-93"],
-#                                   ["Quincy", "error"],
-#                                   ["Tom", "$500"]]
-
 print(ccProvider([["Add", "Tom", "4111111111111111", "$1000"],
               ["Add", "Lisa", "5454545454545454", "$3000"],
               ["Add", "Quincy", "1234567890123456", "$2000"],
@@ -149,3 +145,7 @@ print(ccProvider([["Add", "Tom", "4111111111111111", "$1000"],
               ["Charge", "Lisa", "$7"],
               ["Credit", "Lisa", "$100"],
               ["Credit", "Quincy", "$200"]]))
+
+# ccProvider(operations) = [["Lisa", "$-93"],
+#                                   ["Quincy", "error"],
+#                                   ["Tom", "$500"]]
