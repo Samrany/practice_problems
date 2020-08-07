@@ -13,9 +13,9 @@ def ccProvider(operations):
 
         elif op[0] == "Credit":
             balance_info.update(cc_credit(balance_info, op))
-        
+      
         else:
-
+            raise RuntimeError("Action not valid ('Add', 'Charge', or 'Credit')")
 
     return(cc_balances(balance_info))
 
@@ -24,7 +24,7 @@ def cc_add(operation):
     """Given a list of cc info, checks if card passes luhn function and returns dictionary
      with people (key) and respective card_num, limit, and balance of 0, or error if failed luhn test (values)"""
 
-    action, person, card_num, limit = operation
+    _, person, card_num, limit = operation
     limit = int(limit.split('$')[1])
 
     add_dict = {}
@@ -44,7 +44,7 @@ def cc_charge(balance_info, operation):
     applies charge to balance if balance doesn't have an error, or if charge will
     not put user over cc limit and returns updated dictionary"""
 
-    action, person, charge = operation
+    _, person, charge = operation
     charge = int(charge.split('$')[1])
 
     if balance_info[person]['balance'] == 'error' or (
@@ -53,7 +53,6 @@ def cc_charge(balance_info, operation):
 
     else:
         balance_info[person]['balance'] += charge
-
 
     return balance_info
 
@@ -105,8 +104,8 @@ def luhn_check(cc_num):
     for num in cc_num:
         list_nums.append(int(num))
 
-
     count = 0
+
     for item in list_nums[-1::-1]:
         count += 1
 
@@ -124,15 +123,11 @@ def luhn_check(cc_num):
                 added_nums = int(str_value[0]) + int(str_value[1])
                 sum_list.append(added_nums)
 
-
     if sum(sum_list) % 10 == 0:
         return True
 
     else:
         return False
-
-
-
 
 
 
