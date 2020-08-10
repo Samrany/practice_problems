@@ -41,14 +41,24 @@ def Product_except_self(nums):
 	return output_list	
 
 
-loop over each item
 
 
 def Product_except_self2(nums):
+	output_list = []
+	product = 1
+	
+	for num in nums:
+		product = num * product 
+
+	for num in nums:
+		output_list.append(int(product / num))
+
+	return output_list
 
 
-print(Product_except_self([1, 2, 3]) )
-print(Product_except_self([1, 2, 4]) )
+
+print(Product_except_self2([1, 2, 3]) )
+#print(Product_except_self([1, 2, 4]) )
 
 # 6, 3, 2
 # 8, 4, 2

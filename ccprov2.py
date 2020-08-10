@@ -38,7 +38,6 @@ def cc_add(operation):
     return add_dict
 
 
-
 def cc_charge(balance_info, operation):
     """Given a dictionary of people's cc balance info and a list with cc charge info,
     applies charge to balance if balance doesn't have an error, or if charge will
