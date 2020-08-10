@@ -41,8 +41,6 @@ def Product_except_self(nums):
 	return output_list	
 
 
-[0, 2, 4]
-[8, 0, 0]
 
 def Product_except_self2(nums):
 	output_list = []
@@ -68,9 +66,14 @@ def Product_except_self2(nums):
 	return output_list
 
 
+def product_third_approach(nums):
+	length = len(nums)
+	left_prod, right_prod, total_prod = [1]*length, [1]*length, [1]* length
+	print(left_prod)
 
-print(Product_except_self2([1, 2, 3]))
-print(Product_except_self2([0, 2, 4])) #8, 0, 0
+
+print(product_third_approach([1, 2, 3]))
+print(product_third_approach([0, 2, 4])) #8, 0, 0
 #print(Product_except_self([1, 2, 4]) )
 
 # 6, 3, 2
