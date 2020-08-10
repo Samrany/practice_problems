@@ -41,23 +41,36 @@ def Product_except_self(nums):
 	return output_list	
 
 
-
+[0, 2, 4]
+[8, 0, 0]
 
 def Product_except_self2(nums):
 	output_list = []
 	product = 1
+	product_without_zeros = 1
 	
 	for num in nums:
+		
+		if num != 0:
+			product_without_zeros = num * product_without_zeros
+
 		product = num * product 
+		
+
 
 	for num in nums:
-		output_list.append(int(product / num))
+		if num == 0:
+			output_list.append(product_without_zeros)
+
+		else:
+			output_list.append(int(product / num))
 
 	return output_list
 
 
 
-print(Product_except_self2([1, 2, 3]) )
+print(Product_except_self2([1, 2, 3]))
+print(Product_except_self2([0, 2, 4])) #8, 0, 0
 #print(Product_except_self([1, 2, 4]) )
 
 # 6, 3, 2
