@@ -69,7 +69,18 @@ def Product_except_self2(nums):
 def product_third_approach(nums):
 	length = len(nums)
 	left_prod, right_prod, total_prod = [1]*length, [1]*length, [1]* length
-	print(left_prod)
+
+	for i in range(1, length):
+		left_prod[i] = left_prod[i-1] * nums[i-1]
+
+	for i in reversed(range(0, length-1)):
+		right_prod[i] = right_prod[i+1] * nums[i+1]
+
+
+	for i in range(length):
+		total_prod[i] = left_prod[i] * right_prod[i]
+
+	return total_prod
 
 
 print(product_third_approach([1, 2, 3]))
