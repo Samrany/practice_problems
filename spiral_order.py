@@ -6,12 +6,18 @@ def spiral_order(matrix):
 	Columns = len(matrix[0])
 
 
-	for item in matrix[0]:
-		print(f'item is {item}')
-		result.append(item)
-		matrix[0].pop(0)
-		print(f'result is{result} and matrix is {matrix}')
+	for column in matrix[0]:
+		result.append(column)
 
+	matrix.pop(0)
+
+
+	for row in matrix:
+		result.append(row[-1])
+		row.pop(-1)
+
+	print(matrix)
+	
 
 	# for each row, increasing, pop last index and append until no next row
 
