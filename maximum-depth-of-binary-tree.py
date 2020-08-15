@@ -28,6 +28,32 @@ def maxDepth(self, root: TreeNode) -> int:
     else:
         return count
 
+
+
+
+def maxDepth2(root):
+        nodes_list = [root]
+        count = 0
+        
+        if root is None:
+            return count
+
+        while nodes_list:
+
+            for x in range(len(nodes_list)):
+                node = nodes_list.pop(0)
+
+                if node.left:
+                    nodes_list.append(node.left)
+
+                if node.right:
+                    nodes_list.append(node.right)
+
+     
+            count += 1
+        return count
+
+
 def maxDepth_recursive(root):
     if root is None:
         return 0
@@ -41,8 +67,9 @@ Root.left.right = None
 Root.right = TreeNode(20)
 Root.right.left = TreeNode(15)
 Root.right.right = TreeNode(7)
+Root.right.right.right = TreeNode(8)
 
-print(maxDepth1(Root))
+print(maxDepth2(Root))
 
 # def print_binary_tree(head):
 #     curr_left = head
