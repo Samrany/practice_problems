@@ -40,3 +40,8 @@ print(maxSubArray([8, -1, 7, 1, -4]))
 # curSum = -4
 
 # [-4, 3, 2, -5, 2, 5, -1]
+
+
+def median_sorted_arrays(list1, list2):
+
+    evaluation_array = []
