@@ -45,3 +45,15 @@ print(maxSubArray([8, -1, 7, 1, -4]))
 def median_sorted_arrays(list1, list2):
 
     evaluation_array = []
+    pointer1 = 0
+    pointer2 = 0
+
+    while len(evaluation_array) < len(list1) + 1:
+
+        if list1[pointer1] < list2[pointer2]:
+            evaluation_array.append(list1[pointer1])
+            pointer1 += 1
+
+        else:
+            evaluation_array.append(list2[pointer2])
+            pointer2 += 1
