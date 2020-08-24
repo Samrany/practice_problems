@@ -57,3 +57,11 @@ def median_sorted_arrays(list1, list2):
         else:
             evaluation_array.append(list2[pointer2])
             pointer2 += 1
+
+    num1, num2 = evaluation_array[-1], evaluation_array[-2]
+
+    return (num1 + num2) / 2    
+
+
+print(median_sorted_arrays([1, 2, 8],[5, 6, 7]))
+# pointer can get out of range
